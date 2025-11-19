@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container mt-3 p-6 w-50 border border-2 border-light">
+    <h3 class="text-center">BMI</h3>
+    <form method="post">
+        {% csrf_token %}
+{{form|crispy}}
+        <input type="submit">
+    </form>
+
+ {% if result %}
+        <h4 class="text-center mt-3">BMI is: {{ result }}</h4>
+    {% endif %}
+</div>
+{% endblock %}
